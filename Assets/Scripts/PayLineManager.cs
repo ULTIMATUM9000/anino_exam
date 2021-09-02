@@ -41,50 +41,37 @@ public class PayLineManager : Singleton<PayLineManager>
 
 	public PayLineList ListOfPayLines = new PayLineList(); //list of the different types of payline
 
-	[SerializeField] int[] payout;
-
-	[SerializeField ]int[] duplicateCounter;
-
-	public void ResetPayLines()
-	{
-		for(int i = 0; i < payout.Length; i++)
-		{
-			payout[i] = 0;
-		}
-	}
+	[SerializeField] int[] duplicateCounter;
 
 	public void CheckPayLines()
 	{
-		for (int i = 0; i < GameManager.Instance.betValue; i++) //Finds the first item of the pattern list
+		for (int i = 0; i < GameManager.Instance.betValue; i++) //Finds the first item of the pay line list
 		{
-			for (int j = 0; j < ListOfPayLines.payLineList[i].payLine.Count; j++)
+			for (int j = 0; j < GameManager.Instance.reels.Length; j++)
 			{
-				for (int k = j + 1; k < ListOfPayLines.payLineList[i].payLine.Count; k++)
+				switch (GameManager.Instance.reels[j].stoppedSlot[ListOfPayLines.payLineList[i].payLine[j]])
 				{
-					switch (GameManager.Instance.reels[j].stoppedSlot[ListOfPayLines.payLineList[i].payLine[k]])
-					{
-						case "A":
-							duplicateCounter[0] += 1;
-							break;
-						case "B":
-							duplicateCounter[1] += 1;
-							break;
-						case "C":
-							duplicateCounter[2] += 1;
-							break;
-						case "D":
-							duplicateCounter[3] += 1;
-							break;
-						case "E":
-							duplicateCounter[4] += 1;
-							break;
-						case "F":
-							duplicateCounter[5] += 1;
-							break;
-						case "G":
-							duplicateCounter[6] += 1;
-							break;
-					}
+					case "A":
+						duplicateCounter[0]++;
+						break;
+					case "B":
+						duplicateCounter[1]++;
+						break;
+					case "C":
+						duplicateCounter[2]++;
+						break;
+					case "D":
+						duplicateCounter[3]++;
+						break;
+					case "E":
+						duplicateCounter[4]++;
+						break;
+					case "F":
+						duplicateCounter[5]++;
+						break;
+					case "G":
+						duplicateCounter[6]++;
+						break;
 				}
 			}
 
@@ -110,7 +97,7 @@ public class PayLineManager : Singleton<PayLineManager>
 				}
 			}
 
-			for (int l = 0; l < duplicateCounter.Length; l++) //Reset Dupe Counter\
+			for (int l = 0; l < duplicateCounter.Length; l++) //Reset Dupe Counter
 			{
 				duplicateCounter[l] = 0;
 			}

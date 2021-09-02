@@ -47,39 +47,18 @@ public class Reel : MonoBehaviour
     private IEnumerator Rotate()
     {
         rowStopped = false;
-        timeInterval = Random.Range(0.025f, 0.05f);
+        timeInterval = 0.05f;
 
         while (!GameManager.Instance.rollStopped)
 		{
-            //if (index == 0)
-            //{
-            //    stoppedSlot[0] = Symbols[Symbols.Length-1];
-            //    stoppedSlot[1] = Symbols[0];
-            //    stoppedSlot[2] = Symbols[1];
-            //    index++;
-            //}
-
-            //if (index == Symbols.Length - 1)
-            //{
-            //    stoppedSlot[0] = Symbols[Symbols.Length-2];
-            //    stoppedSlot[1] = Symbols[Symbols.Length-1];
-            //    stoppedSlot[2] = Symbols[0];
-            //    index = 0;
-            //}
-            //if (index > 0 && index < Symbols.Length - 1)
-            //{
-            //    stoppedSlot[0] = Symbols[index - 1];
-            //    stoppedSlot[1] = Symbols[index];
-            //    stoppedSlot[2] = Symbols[index + 1];
-            //    index++;
-            //}
-
             stoppedSlot[0] = Symbols[Random.Range(0, Symbols.Length - 1)];
             stoppedSlot[1] = Symbols[Random.Range(0, Symbols.Length - 1)];
             stoppedSlot[2] = Symbols[Random.Range(0, Symbols.Length - 1)];
 
             yield return new WaitForSeconds(timeInterval);
         }
+
+        yield return new WaitForSeconds(timeInterval);
 
         rowStopped = true;
 	}
