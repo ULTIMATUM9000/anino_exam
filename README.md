@@ -19,3 +19,4 @@
 - You can expand the number of Pay Line patterns and Symbols, with just small changes to the Inspector and code itself.
 - You can expand the number of Reels and Rows with some additional code.
 - For future improvements, I would like to make the code more efficient in finding patterns through each Pay Lines, and more balancing for the prizes of each Symbol patterns. And maybe better assets.
+- I don't know how to use github that efficiently yet, sorry :-)
