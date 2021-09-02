@@ -11,7 +11,7 @@
 - SymbolData.cs - ScriptableObject script that determines the prizes of certain combinations of a symbol.
 
 **Data Sources**
-- ScriptableObjects Folder - You can find the SymbolData ScriptableObjects, which determines the prizes when you get patterns
+- ScriptableObjects Folder - You can find the SymbolData ScriptableObjects, which determines the prizes when you get patterns, and edit it based on balancing.
 - PayLineManager.cs - This is where you assign the SymbolData ScriptableObjects, and you can put the Pay Lines pattern here in the Inspector.
 - AudioManager.cs - You assign audio files here and edit their values; Volume, Pitch, Pan Stereo, Loop, Min and Max Distance, etc.
 
